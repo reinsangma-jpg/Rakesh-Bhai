@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark light">
+  <title>Maa AI — JavaScript Knowledge Assistant</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <main class="shell">
+    <section class="app" role="application" aria-label="Maa AI chatbot">
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">🤖</div>
+          <div class="brandText">
+            <div class="titleRow">
+              <h1>Maa AI</h1>
+              <span class="status">
+                <span class="dot"></span>
+                <span id="readyLabel">Ready</span>
+              </span>
+            </div>
+            <p class="subtitle">JavaScript Knowledge Assistant</p>
+          </div>
+        </div>
+
+        <div class="topActions">
+          <button class="iconBtn" id="btnStats" title="Knowledge stats" aria-label="Knowledge stats">🧠</button>
+          <button class="iconBtn" id="btnQuiz" title="Quiz mode" aria-label="Quiz mode">❓</button>
+          <button class="iconBtn" id="btnTheme" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+          <button class="iconBtn danger" id="btnClear" title="Clear chat" aria-label="Clear chat">🧹</button>
+        </div>
+      </header>
+
+      <section class="drawer" id="statsDrawer" aria-label="Knowledge statistics" hidden>
+        <div class="drawerCard">
+          <div class="drawerHeader">
+            <h2>Knowledge Stats</h2>
+            <button class="iconBtn" id="btnCloseDrawer" aria-label="Close stats">✕</button>
+          </div>
+          <div class="statsGrid">
+            <div class="stat">
+              <div class="k">Knowledge Categories</div>
+              <div class="v" id="statCategories">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">Knowledge Entries</div>
+              <div class="v" id="statEntries">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">Conversation Status</div>
+              <div class="v" id="statStatus">Ready</div>
+            </div>
+          </div>
+          <p class="hint">
+            Tip: Add more files in <code>/data</code> and register them in <code>data/registry.js</code>.
+            The AI engine does not need changes.
+          </p>
+        </div>
+      </section>
+
+      <section class="chat" id="chat" aria-label="Chat messages"></section>
+
+      <section class="composer" aria-label="Message input">
+        <div class="progress" id="progress" hidden>
+          <span class="badge">🔎 Searching knowledge…</span>
+          <span class="badge">🧠 Understanding…</span>
+          <span class="badge">✨ Preparing…</span>
+        </div>
+
+        <div class="inputRow">
+          <button class="iconBtn" id="btnMic" title="Voice input (device feature)" aria-label="Voice input">🎙️</button>
+          <input
+            id="input"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            placeholder="Type your question…"
+            aria-label="Type your question"
+          />
+          <button class="sendBtn" id="btnSend" aria-label="Send message">➤</button>
+        </div>
+
+        <div class="quickRow" id="quickRow" aria-label="Quick actions"></div>
+      </section>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
